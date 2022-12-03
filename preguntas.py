@@ -19,16 +19,16 @@ def pregunta_01():
     df = pd.read_csv('concrete.csv')  
 
     # Asigne la columna `strength` a la variable `y`.
-    y = df['strength']
+    y = df['strength'].values
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    x = df.copy(deep=True) 
+    X = df.copy()
 
     # Remueva la columna `strength` del DataFrame `X`.
-    x.pop('strength') 
+    X.drop(['strength'] , axis=1, inplace=True) 
 
     # Retorne `X` y `y`
-    return x, y
+    return X, y
 
 
 def pregunta_02():
@@ -70,7 +70,7 @@ def pregunta_03():
     # Importe Pipeline
     from sklearn.neural_network import MLPRegressor
     from sklearn.preprocessing import MinMaxScaler
-    from sklearn.pipeline import 
+    from sklearn.pipeline import Pipeline
 
     # Cree un pipeline que contenga un estimador MinMaxScaler y un estimador
     # MLPRegressor
